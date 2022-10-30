@@ -1,0 +1,23 @@
+---
+version: '3.8'
+services:
+  kyria:
+    build: .
+    environment:
+      - "ZEPHYR_TOOLCHAIN_VARIANT=cross-compile"
+      - "CROSS_COMPILE=/usr/bin/arm-none-eabi-"
+    volumes:
+      - type: bind
+        source: ./
+        target: /miryoku_zmk
+        read_only: true
+      - type: bind
+        source: ./build 
+        target: /zmk/app/build
+        read_only: false
+    command:
+      - /bin/sh
+      - -c 
+      - |
+        /usr/local/bin/west build -d build/right -b nice_nano -- -DSHIELD=kyria_rev2_right -DZMK_CONFIG="/miryoku_zmk/config/"
+        /usr/local/bin/west build -d build/left -b nice_nano -- -DSHIELD=kyria_rev2_left -DZMK_CONFIG="/miryoku_zmk/config/"
