@@ -41,4 +41,23 @@ services:
       - |
         /usr/local/bin/west build -p -d build/right -b nice_nano_v2 -- -DSHIELD="kyria_rev2_right nice_view_adapter nice_view" -DZMK_CONFIG="/miryoku_zmk/config/"
         /usr/local/bin/west build -p -d build/left -b nice_nano_v2 -- -DSHIELD="kyria_rev2_left nice_view_adapter nice_view" -DZMK_CONFIG="/miryoku_zmk/config/"
+  kyria_reset:
+    build: .
+    environment:
+      - "ZEPHYR_TOOLCHAIN_VARIANT=cross-compile"
+      - "CROSS_COMPILE=/usr/bin/arm-none-eabi-"
+    volumes:
+      - type: bind
+        source: ./
+        target: /miryoku_zmk
+        read_only: true
+      - type: bind
+        source: ./build 
+        target: /zmk/app/build
+        read_only: false
+    command:
+      - /bin/sh
+      - -c 
+      - |
+        /usr/local/bin/west build -p -d build/reset -b nice_nano_v2 -- -DSHIELD="settings_reset" -DZMK_CONFIG="/miryoku_zmk/config/"
 
