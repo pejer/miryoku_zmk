@@ -24,8 +24,8 @@ services:
       - /bin/sh
       - -c 
       - |
-        /usr/local/bin/west build -d build/right -b nice_nano_v2 -- -DSHIELD="kyria_rev2_right nice_view_adapter nice_view" -DZMK_CONFIG="/miryoku_zmk/config/"
-        /usr/local/bin/west build -d build/left -b nice_nano_v2 -- -DSHIELD="kyria_rev2_left nice_view_adapter nice_view" -DZMK_CONFIG="/miryoku_zmk/config/"
+        /usr/local/bin/west build -d build/right -p -b nice_nano_v2 -- -DSHIELD="kyria_rev2_right nice_view_adapter nice_view" -DZMK_CONFIG="/miryoku_zmk/config/"
+        /usr/local/bin/west build -d build/left  -p -b nice_nano_v2 -- -DSHIELD="kyria_rev2_left nice_view_adapter nice_view" -DZMK_CONFIG="/miryoku_zmk/config/"
   kyria_prestine:
     image: zmk_dev:miryoku_zmk
     build: .
@@ -51,7 +51,7 @@ services:
       - |
         /usr/local/bin/west build -p -d build/right -b nice_nano_v2 -- -DSHIELD="kyria_rev2_right nice_view_adapter nice_view" -DZMK_CONFIG="/miryoku_zmk/config/"
         /usr/local/bin/west build -p -d build/left -b nice_nano_v2 -- -DSHIELD="kyria_rev2_left nice_view_adapter nice_view" -DZMK_CONFIG="/miryoku_zmk/config/"
-  kyria_reset:
+  reset:
     image: zmk_dev:miryoku_zmk
     build: .
     environment:

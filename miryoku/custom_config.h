@@ -7,8 +7,6 @@
 #define MIRYOKU_CLIPBOARD_MAC
 #define MIRYOKU_MAPPING_EXTENDED_THUMBS
 #include "../swedish_keymap.h"
-
-
 // redefine base QWERTY to include semicolon - thus swedish keyboard layout (boooring I know but still)
 #define MIRYOKU_LAYER_BASE \
 &kp SE_Q,             &kp SE_W,             &kp SE_E,             &kp SE_R,             &kp SE_T,             &kp SE_Y,             &kp SE_U,             &kp SE_I,             &kp SE_O,             &kp SE_P,             \

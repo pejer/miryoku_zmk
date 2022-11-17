@@ -1,6 +1,7 @@
 #! /bin/bash 
 echo "This will build the and flash in one go. Enjoy"
-docker-compose run kyria
+touch build/{left,right,reset}.uf2
+docker-compose run kyria_prestine
 
 echo "Reset right board..."
 sleep 10
