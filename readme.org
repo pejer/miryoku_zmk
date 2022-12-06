@@ -1,4 +1,5 @@
-# Copyright 2022 Manna Harbour
+# Copyright 2022 Manna Harbour gah
+
 # https://github.com/manna-harbour/miryoku
 
 * Miryoku ZMK [[https://raw.githubusercontent.com/manna-harbour/miryoku/master/data/logos/miryoku-roa-32.png]]
